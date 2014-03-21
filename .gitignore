@@ -1,0 +1,8 @@
+*~
+.*.sw*
+*.pyc
+MANIFEST
+__pycache__
+/venv
+/dist
+*.egg-info
