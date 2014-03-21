@@ -33,6 +33,8 @@ def colorize_indices(indices, max_value):
         else:
             c = Fore.WHITE
 
+        return "%s%d%s" % (c, i, Fore.RESET)
+
     return map(colorize, indices)
 
 
@@ -41,7 +43,7 @@ def print_pollution():
     print """Pollution:
     Yesterday: %s
     Today: %s
-    Tomorrow: %s""" % tuple(colorize_indices(p.indices(), max_val=100))
+    Tomorrow: %s""" % tuple(colorize_indices(p.indices(), max_value=100))
 
 
 def main():
@@ -51,6 +53,7 @@ def main():
     parser.add_argument('--pollution', '-p', dest='pollution',
                         default=True, help='print pollution info')
     parser.add_argument('--version', '-v', action='store_true')
+    args = parser.parse_args()
     if args.version:
         print_version_and_exit()
 
