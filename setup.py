@@ -29,7 +29,7 @@ setup(
     long_description=open('README.rst', 'r').read(),
     install_requires=[
         'colorama >= 0.2.7',
-        'beautifulsoup >= 4.3.2',
+        'beautifulsoup4 >= 4.3.2',
     ],
     classifiers=[
         'Environment :: Console',
