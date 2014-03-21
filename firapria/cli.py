@@ -48,9 +48,9 @@ def main():
     parser = argparse.ArgumentParser(
         description='Get pollution indices for Paris'
     )
-    parser.add_argument('--pollution', dest='pollution', short='-p',
+    parser.add_argument('--pollution', '-p', dest='pollution',
                         default=True, help='print pollution info')
-    parser.add_argument('--version', action='store_true')
+    parser.add_argument('--version', '-v', action='store_true')
     if args.version:
         print_version_and_exit()
 
