@@ -1,5 +1,5 @@
 ========
-term2048
+firapria
 ========
 
 .. image:: https://img.shields.io/travis/bfontaine/firapria.png
