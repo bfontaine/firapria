@@ -31,6 +31,9 @@ Usage
 
 It returns three integers, for yesterday’s, today’s and tomorrow’s indices.
 
+The library also include a CLI executable of the same name. Run it with ``-h``
+to see its available options.
+
 Tests
 -----
 
