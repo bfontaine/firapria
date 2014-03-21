@@ -3,7 +3,9 @@ python:
 - '2.7'
 install:
 - make deps
+- pip install coveralls
 script:
-- make check
+- make covercheck
+after_success: coveralls
 notifications:
   email: false

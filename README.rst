@@ -6,6 +6,10 @@ firapria
    :target: https://travis-ci.org/bfontaine/firapria
    :alt: Build status
 
+.. image:: https://img.shields.io/coveralls/bfontaine/firapria/master.png
+   :target: https://coveralls.io/r/bfontaine/firapria?branch=master
+   :alt: Coverage status
+
 .. image:: https://img.shields.io/pypi/v/firapria.png
    :target: https://pypi.python.org/pypi/firapria
    :alt: Pypi package
