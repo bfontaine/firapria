@@ -5,8 +5,9 @@ SRC=firapria
 COVERFILE:=.coverage
 COVERAGE_REPORT:=report -m
 
-.DEFAULT: covercheck
-.PHONY: clean check covercheck stylecheck
+.PHONY: deps clean check covercheck stylecheck
+
+DEFAULT: deps stylecheck covercheck
 
 deps:
 	pip install -qr requirements.txt
