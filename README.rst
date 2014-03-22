@@ -37,8 +37,15 @@ It returns three integers, for yesterday’s, today’s and tomorrow’s indices
 might return only two integers sometimes, it’s when no prevision is available
 for tomorrow’s indice.
 
-The library also include a CLI executable of the same name. Run it with ``-h``
-to see its available options.
+The library also include a simple CLI of the same name:
+
+.. code-block::
+
+    $ firapria
+    Pollution:
+        Yesterday: 42
+        Today: 40
+        Tomorrow: 40
 
 Tests
 -----
