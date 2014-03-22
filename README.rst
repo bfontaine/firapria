@@ -33,7 +33,9 @@ Usage
     from firapria.pollution import PollutionFetcher
     indices = PollutionFetcher().indices()
 
-It returns three integers, for yesterday’s, today’s and tomorrow’s indices.
+It returns three integers, for yesterday’s, today’s and tomorrow’s indices. It
+might return only two integers sometimes, it’s when no prevision is available
+for tomorrow’s indice.
 
 The library also include a CLI executable of the same name. Run it with ``-h``
 to see its available options.
