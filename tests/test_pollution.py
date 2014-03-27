@@ -10,7 +10,7 @@ else:
     import unittest
 
 from firapria import pollution
-from firapria.pollution import PollutionFetcher
+from firapria.pollution import PollutionFetcher, get_indices
 
 
 _urlopen = pollution.urlopen
@@ -40,24 +40,25 @@ class TestPollution(unittest.TestCase):
     def tearDown(self):
         pollution.urlopen = _urlopen
 
-    # __init__
+    def test_get_indices(self):
+        res = get_indices()
+        self.assertTrue(self.page_mock.called)
+        self.assertIs(res, None)
+
+    # PollutionFetcher (legacy support)
+
+    ## __init__
 
     def test_should_not_fetch_anything_on_creation(self):
         p = PollutionFetcher()
         self.assertEqual(self.page_mock.call_count, 0)
 
-    # indices
+    ## indices
 
     def test_should_return_none_if_cant_parse_page(self):
         res = PollutionFetcher().indices()
         self.assertTrue(self.page_mock.called)
         self.assertIs(res, None)
-
-    def test_should_fetch_indices_only_once(self):
-        p = PollutionFetcher()
-        p.indices()
-        p.indices()
-        self.assertEqual(self.page_mock.call_count, 1)
 
     def test_should_parse_eu_indices(self):
         self.setReturnHTML(self.sample)
