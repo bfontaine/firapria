@@ -6,6 +6,7 @@ __pycache__
 /venv
 /dist
 /htmlcov
+_build
 *.egg-info
 .coverage
 .tox
