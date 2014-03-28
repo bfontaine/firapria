@@ -1,8 +1,12 @@
 # -*- coding: UTF-8 -*-
 
 from os.path import dirname
-from mock import patch, MagicMock
 import platform
+
+if platform.python_version() < '3.3':
+    from mock import patch, MagicMock
+else:
+    from unittest.mock import patch, MagicMock
 
 if platform.python_version() < '2.7':
     import unittest2 as unittest
@@ -65,11 +69,11 @@ class TestPollution(unittest.TestCase):
         p = PollutionFetcher()
         res = p.indices(_type=PollutionFetcher.EU)
         self.assertEqual(self.page_mock.call_count, 1)
-        self.assertSequenceEqual(res, [42, 40, 40])
+        self.assertSequenceEqual(list(res), [42, 40, 40])
 
     def test_should_parse_fr_indices(self):
         self.setReturnHTML(self.sample)
         p = PollutionFetcher()
         res = p.indices(_type=PollutionFetcher.FR)
         self.assertEqual(self.page_mock.call_count, 1)
-        self.assertSequenceEqual(res, [4, 4, 3])
+        self.assertSequenceEqual(list(res), [4, 4, 3])

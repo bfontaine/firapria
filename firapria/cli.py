@@ -4,6 +4,7 @@
 Command-line interface
 """
 
+from __future__ import print_function
 import sys
 import argparse
 from firapria.pollution import get_indices
@@ -40,9 +41,9 @@ def print_pollution():
 
     indices = zip(days, get_indices())
 
-    print "Pollution:"
+    print("Pollution:")
     for day, indice in indices:
-        print "\t%s: %s" % (day, colorize_indice(indice, 100))
+        print("\t%s: %s" % (day, colorize_indice(indice, 100)))
 
 
 def main():

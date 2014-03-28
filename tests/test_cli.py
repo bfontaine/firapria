@@ -2,7 +2,11 @@
 
 import sys
 import platform
-from mock import patch, MagicMock
+
+if platform.python_version() < '3.3':
+    from mock import patch, MagicMock
+else:
+    from unittest.mock import patch, MagicMock
 
 from firapria import cli
 from firapria import __version__
@@ -12,7 +16,11 @@ if platform.python_version() < '2.7':
 else:
     import unittest
 
-from StringIO import StringIO
+if platform.python_version() < '3.0':
+    from StringIO import StringIO
+else:
+    from io import StringIO
+
 from colorama import Fore
 from firapria import cli, pollution
 

@@ -5,7 +5,11 @@ Get pollution info in Île-de-France from http://www.airparif.asso.fr/
 """
 
 from bs4 import BeautifulSoup
-from urllib import urlopen
+
+try:
+    from urllib import urlopen
+except ImportError:
+    from urllib.request import urlopen  # Python 3
 
 BASEURL = 'http://www.airparif.asso.fr/'
 
