@@ -21,15 +21,15 @@ _sys_stdout = sys.stdout
 _sys_argv = sys.argv
 
 _cli_print_pollution = cli.print_pollution
-_pollution_fetcher = cli.PollutionFetcher
+_cli_get_indices = cli.get_indices
 
 class TestCli(unittest.TestCase):
 
     def setFakeIndices(self, indices):
-        class FakePollutionFetcher():
-            def indices(self, *args):
-                return indices
-        cli.PollutionFetcher = FakePollutionFetcher
+        def fake_get_indices(*args):
+            return indices
+
+        cli.get_indices = fake_get_indices
 
     def setUp(self):
         exitMock = MagicMock()
@@ -44,7 +44,7 @@ class TestCli(unittest.TestCase):
         sys.stdout = _sys_stdout
         sys.argv = _sys_argv
         cli.print_pollution = _cli_print_pollution
-        cli.PollutionFetcher = _pollution_fetcher
+        cli.get_indices = _cli_get_indices
 
     # print_version_and_exit
 

@@ -6,7 +6,7 @@ Command-line interface
 
 import sys
 import argparse
-from firapria.pollution import PollutionFetcher
+from firapria.pollution import get_indices
 
 from colorama import init, Fore
 init(autoreset=True)
@@ -36,10 +36,9 @@ def colorize_indice(i, max_value):
 
 
 def print_pollution():
-    p = PollutionFetcher()
     days = ['Yesterday', 'Today', 'Tomorrow']
 
-    indices = zip(days, p.indices())
+    indices = zip(days, get_indices())
 
     print "Pollution:"
     for day, indice in indices:
