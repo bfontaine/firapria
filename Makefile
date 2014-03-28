@@ -12,8 +12,11 @@ DEFAULT: deps stylecheck covercheck
 deps:
 	pip install -qr requirements.txt
 
-check:
+check: stylecheck
 	python tests/test.py
+
+check-version: stylecheck
+	tox
 
 stylecheck:
 	pep8 $(SRC)
