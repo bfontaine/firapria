@@ -15,7 +15,7 @@ deps:
 check: stylecheck
 	python tests/test.py
 
-check-version: stylecheck
+check-versions: stylecheck
 	tox
 
 stylecheck:
@@ -29,5 +29,5 @@ clean:
 	rm -f *~ */*~
 	rm -f $(COVERFILE)
 
-publish: check
+publish: check-versions
 	python setup.py sdist upload
