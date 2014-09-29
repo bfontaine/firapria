@@ -5,12 +5,17 @@ SRC=firapria
 COVERFILE:=.coverage
 COVERAGE_REPORT:=report -m
 
+VENV=venv
+
 .PHONY: deps clean check covercheck stylecheck
 
 DEFAULT: deps stylecheck covercheck
 
-deps:
-	pip install -qr requirements.txt
+deps: venv
+	$(VENV)/bin/pip install -qr requirements.txt
+
+venv:
+	virtualenv venv
 
 check: stylecheck
 	python tests/test.py
