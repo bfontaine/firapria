@@ -13,26 +13,28 @@ except ImportError:
 
 BASEURL = 'http://www.airparif.asso.fr/'
 
-EU, FR = 'eu', 'fr'  # indices types
 
-
-def get_indices(_type=EU):
+def get_indices():
     """
-    Return a list of 3 integers representing indices for yesterday, today
-    and tomorrow, using the given type (EU or FR).
+    Return a list of 3 integers representing EU indices for yesterday, today
+    and tomorrow.
     """
     doc = BeautifulSoup(urlopen(BASEURL))
-    div = doc.select('#home_indices_%s' % _type)
-    if not div:
+
+    divs = doc.select('.indices_txt')
+    if not divs:
         return None
-    divs = div[0].select('.indices_data .selected')
+
+    sibling = divs[1].nextSibling
+    if not sibling:
+        return None
+
+    data = sibling.nextSibling
+    if not data:
+        return None
+
+    # the indices are in an HTML comment
+    data = BeautifulSoup(data)
+
+    divs = data.select('.selected')
     return map(lambda d: int(d.text), divs)
-
-
-class PollutionFetcher():  # legacy class
-
-    EU, FR = EU, FR
-
-    def indices(self, _type=EU):
-        "deprecated, use firapria.pollution.get_indices instead"
-        return get_indices(_type)

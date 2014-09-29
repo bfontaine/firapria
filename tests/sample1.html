@@ -40,11 +40,11 @@ img, div, a, input {behavior:url(_js/iepngfix.htc);}
         <div id="header_airquality">
             <div class="airquality_text"><span>Pollution</span> <img src="/_img/bttn/arrowB.png" alt="Qualité de l'air" /></div>
             <div class="airquality_text">Aujourd'hui</div>
-            <div class="airquality_low"><strong>40</strong></div>
+            <div class="airquality_low"><strong>46</strong></div>
             <div class="airquality_alert"></div>
 
             <div class="airquality_text">Demain</div>
-            <div class="airquality_low"><strong>40</strong></div>
+            <div class="airquality_medium"><strong>63</strong></div>
             <div class="airquality_alert"></div>
         </div>
         <div id="header_tools">
@@ -128,7 +128,7 @@ img, div, a, input {behavior:url(_js/iepngfix.htc);}
                 <li><a href="#" class="menu06">Qui sommes-nous ?</a>
                 <div class="sub">
                     <ul>
-                        <li><a href="/qui-sommes-nous/missions-le-role">› Missions d'Airparif</a></li>  
+                        <li><a href="/qui-sommes-nous/missions-le-role">› Airparif et ses membres</a></li>  
                         <li><a href="/qui-sommes-nous/enquete-notoriete">› Enquête de notoriété</a></li>
                         <!--<li><a href="/qui-sommes-nous/visite-decouverte">› Visite d'Airparif</a></li> --> 
                         <li><a href="/qui-sommes-nous/assurance-qualite">› Qualité</a></li>  
@@ -143,13 +143,22 @@ img, div, a, input {behavior:url(_js/iepngfix.htc);}
 <div class="clear"></div>
         <div id="content">
             <div id="main_home">
-                <div class="home_airquality">
+                <script type="text/javascript" language="javascript">
+jQuery(function($) {
+    $('[data-tooltip]').each(function(index) {
+        el = $(this);
+        el.easyTooltip({useElement:el.data('tooltip')});
+    });
+    $('a[rel=fancybox]').fancybox({type: 'image'});
+});
+</script>
+<div class="home_airquality">
     <h2><img src="/_img/bttn/arrowW.png" alt="La qualité de l'air en Ile-de-France" /> La pollution de l'air en Île-de-France</h2>
     <div class="home_airquality_indices">
         <div id="home_indices">
             <ul>                
                 <li class="home_indices_fr"><a href="#home_indices_fr" title="Indices français"></a></li>
-                <li class="home_indices_eu"><a href="#home_indices_eu" title="Indices européens"></a></li>
+                <li class="home_indices_eu"><a href="#home_indices_eu"></a></li>
             </ul>
             <div class="clear"></div>
             <div id="home_indices_fr">
@@ -161,30 +170,34 @@ img, div, a, input {behavior:url(_js/iepngfix.htc);}
                 </div>
                 <div class="indices_data">                    <div class="indice_bon selected">4</div>
                     <div class="indice_bon selected">4</div>
-                    <div class="indice_bon selected">3</div>
+                    <div class="indice_moyen selected">3</div>
                 </div>
                 <div class="indices_map">
                     <img src="/_img/home_indices_fr_4.png" alt="indices" />
                 </div>
             </div>
             <div id="home_indices_eu">
-                <h6>Agglomération parisienne</h6>
+                <h6><span style="font-weight:bold">Indice </span>agglomération parisienne</h6>
                 <div class="indices_txt">
                     <div><a href="/indices/resultats-jour-citeair#hier">Hier</a></div>
                     <div><a href="/indices/resultats-jour-citeair#jour">Aujourd'hui</a></div>
                     <div><a href="/indices/resultats-jour-citeair#demain">Demain</a></div>
                 </div>
+                <!--
                 <div class="indices_data">
-                    <div class="indice_low selected">42</div>
-                    <div class="indice_low selected">
-                        40</div>
-                    <div class="indice_low selected">
-                    40</div>
-                </div>
+                    <a data-tooltip="def1-tip" class="tooltip"><div class="indice_medium selected">42</div></a>
+                    <a data-tooltip="def1-tip" class="tooltip"><div class="indice_low selected">
+                        40</div></a>
+                    <a data-tooltip="def1-tip" class="tooltip"><div class="indice_medium selected">
+                    40</div></a>
+                </div>-->
                 <div class="indices_map">
-                    <div><img src="/_img/bkgd/qualif_low.png"></div>
-                    <div><img src="/_img/bkgd/qualif_low.png"></div>
-                    <div><img src="/_img/bkgd/qualif_low.png"></div>
+                    <div><img src="/_img/bkgd/qualif_medium.png" data-tooltip="def1-tip" class="tooltip"></div>
+                    <div><img src="/_img/bkgd/qualif_low.png" data-tooltip="def1-tip" class="tooltip"></div>
+                    
+                    <div>                        <img src="/_img/bkgd/qualif_medium.png" data-tooltip="def1-tip" class="tooltip">
+                                        </div>
+                    
                 </div>
             </div>
             <div class="clear"></div>
@@ -230,6 +243,8 @@ $(function() {
                 <div><a href="/alertes/resultats-jour#jour"><span>Aujourd'hui<br /></span><span>&nbsp;</span></a></div>
                 <div><a href="/alertes/resultats-jour#demain"><span>Demain<br /></span><span>&nbsp;</span></a></div>
     </div>
+    <div class="clear"></div>
+    
     <div class="home_airquality_more">
         <a href="/stations/index/" title="Informations par stations"><img class="roll-over" src="/_img/bttn/airquality_infostations_of.png" alt="Informations par stations" /></a><a href="/etat-air/bilan-annuel-suivi-depassements" title="Suivi de réglementation"><img class="roll-over center" src="/_img/bttn/airquality_reglementation_of.png" alt="Suivi de réglementation" /></a><a href="/divers/pollens/" title="Bulletin allergo-pollinique de Paris"><img class="roll-over" src="/_img/bttn/airquality_pollens_of.png" alt="Bulletin des pollens" /></a>
     </div>
@@ -269,6 +284,13 @@ $(function() {
                 <span>La qualité de l'air aux abords de Paris-Charles de Gaulle, Le Bourget et Paris-Orly</span></a>
         </div>
     </div>
+   
+    <!--tooltips def-->
+<div style="display:none">
+	<div class="doubleTooltip" id="def1-tip">
+Cet <u><strong>indice de pollution</strong></u> est un indicateur du niveau de pollution attendu pour trois polluants dans l'agglomération parisienne. Il est calculée et utilisé de manière identique dans une centaine de ville européennes (airqualitynow.eu) mais ce n'est pas une concentration.</div>
+</div>
+
     <div class="clear"></div>
 </div>
 <div class="clear"></div>
@@ -282,44 +304,44 @@ $(function() {
         <a class="prev" title=""><img class="roll-over" src="/_img/bttn/home_focus_scroll_head_of.png" alt="" /></a>
         <div class="focus_scrollable">
                 <div class="focus_item">
-                    <div class="focus_item_img"><a href="/actualite/detail/id/96" title=" Origine des particules : Précisions"><img src="/_img/actu/home/Logo_AIRPARIF.png" alt="" width="90" height="60"/></a></div>
-                    <div class="focus_item_txt"><a href="/actualite/detail/id/96" title=" Origine des particules : Précisions">19/03/2014<br /><span> Origine des particules : Précisions</span><br />Circulation alternée/Épisode de ...<br /></a></div>
+                    <div class="focus_item_img"><a href="/actualite/detail/id/121" title=" Signature d’une coopération entre Airparif et ses homologues de Beijing"><img src="/_img/actu/home/cooperation-pekin.png" alt="" width="90" height="60"/></a></div>
+                    <div class="focus_item_txt"><a href="/actualite/detail/id/121" title=" Signature d’une coopération entre Airparif et ses homologues de Beijing">26/09/2014<br /><span> Signature d’une coopération entre Airparif et ses homologues de Beijing</span><br />Ce vendredi 19 septembre, un programme ...<br /></a></div>
                 </div>
                 <div class="focus_item">
-                    <div class="focus_item_img"><a href="/actualite/detail/id/95" title=" Le chauffage au bois"><img src="/_img/actu/home/chauffage-bois-buche.png" alt="" width="90" height="60"/></a></div>
-                    <div class="focus_item_txt"><a href="/actualite/detail/id/95" title=" Le chauffage au bois">20/02/2014<br /><span> Le chauffage au bois</span><br />Situation en Île-de-France du ...<br /></a></div>
+                    <div class="focus_item_img"><a href="/actualite/detail/id/120" title=" Épisode de pollution en cours"><img src="/_img/actu/home/bilan2010.jpg" alt="" width="90" height="60"/></a></div>
+                    <div class="focus_item_txt"><a href="/actualite/detail/id/120" title=" Épisode de pollution en cours">25/09/2014<br /><span> Épisode de pollution en cours</span><br />Les conditions anticycloniques de ...<br /></a></div>
                 </div>
                 <div class="focus_item">
-                    <div class="focus_item_img"><a href="/actualite/detail/id/94" title=" Épisode de pollution "><img src="/_img/actu/home/web2.jpg" alt="" width="90" height="60"/></a></div>
-                    <div class="focus_item_txt"><a href="/actualite/detail/id/94" title=" Épisode de pollution ">12/12/2013<br /><span> Épisode de pollution </span><br />Un épisode de pollution aux ...<br /></a></div>
+                    <div class="focus_item_img"><a href="/actualite/detail/id/119" title=" Pollution d’origine volcanique depuis le 22 Septembre"><img src="/_img/actu/home/volcan.png" alt="" width="90" height="60"/></a></div>
+                    <div class="focus_item_txt"><a href="/actualite/detail/id/119" title=" Pollution d’origine volcanique depuis le 22 Septembre">23/09/2014<br /><span> Pollution d’origine volcanique depuis le 22 Septembre</span><br />L’éruption du volcan islandais ...<br /></a></div>
                 </div>
                 <div class="focus_item">
-                    <div class="focus_item_img"><a href="/actualite/detail/id/93" title=" Métaux à Limay"><img src="/_img/actu/home/zi-limay-porcheville.jpg" alt="" width="90" height="60"/></a></div>
-                    <div class="focus_item_txt"><a href="/actualite/detail/id/93" title=" Métaux à Limay">02/12/2013<br /><span> Métaux à Limay</span><br />La zone industrielle a fait l’objet ...<br /></a></div>
+                    <div class="focus_item_img"><a href="/actualite/detail/id/118" title=" Situation des polluants de l’air en Île-de-France suite à la prévision d’épisodes de pollution pour les particules PM10"><img src="/_img/actu/home/bilan2010.jpg" alt="" width="90" height="60"/></a></div>
+                    <div class="focus_item_txt"><a href="/actualite/detail/id/118" title=" Situation des polluants de l’air en Île-de-France suite à la prévision d’épisodes de pollution pour les particules PM10">16/09/2014<br /><span> Situation des polluants de l’air en Île-de-France suite à la prévision d’épisodes de pollution pour les particules PM10</span><br />Les conditions anticycloniques de ...<br /></a></div>
                 </div>
                 <div class="focus_item">
-                    <div class="focus_item_img"><a href="/actualite/detail/id/92" title=" Simulation 3D"><img src="/_img/actu/home/aircity.jpg" alt="" width="90" height="60"/></a></div>
-                    <div class="focus_item_txt"><a href="/actualite/detail/id/92" title=" Simulation 3D">13/11/2013<br /><span> Simulation 3D</span><br />Le prototype Aircity a permis de ...<br /></a></div>
+                    <div class="focus_item_img"><a href="/actualite/detail/id/117" title=" Nouveaux critères de déclenchement de l’alerte"><img src="/_img/actu/home/arretepm21122011.jpg" alt="" width="90" height="60"/></a></div>
+                    <div class="focus_item_txt"><a href="/actualite/detail/id/117" title=" Nouveaux critères de déclenchement de l’alerte">15/09/2014<br /><span> Nouveaux critères de déclenchement de l’alerte</span><br />Les critères de déclenchement de ...<br /></a></div>
                 </div>
                 <div class="focus_item">
-                    <div class="focus_item_img"><a href="/actualite/detail/id/91" title=" Terres de France rejoint Airparif"><img src="/_img/actu/home/Logo_AIRPARIF.png" alt="" width="90" height="60"/></a></div>
-                    <div class="focus_item_txt"><a href="/actualite/detail/id/91" title=" Terres de France rejoint Airparif">05/11/2013<br /><span> Terres de France rejoint Airparif</span><br />La communauté d’agglomération ...<br /></a></div>
+                    <div class="focus_item_img"><a href="/actualite/detail/id/116" title=" La pollution de l’air : première préoccupation environnementale des Français !"><img src="/_img/actu/home/Illustration-sondage-2.jpg" alt="" width="90" height="60"/></a></div>
+                    <div class="focus_item_txt"><a href="/actualite/detail/id/116" title=" La pollution de l’air : première préoccupation environnementale des Français !">28/07/2014<br /><span> La pollution de l’air : première préoccupation environnementale des Français !</span><br />Pour la troisième année consécutive, ...<br /></a></div>
                 </div>
                 <div class="focus_item">
-                    <div class="focus_item_img"><a href="/actualite/detail/id/89" title=" La pollution de l'air extérieur reconnue comme cancérigène par l'OMS"><img src="/_img/actu/home/logo-oms.png" alt="" width="90" height="60"/></a></div>
-                    <div class="focus_item_txt"><a href="/actualite/detail/id/89" title=" La pollution de l'air extérieur reconnue comme cancérigène par l'OMS">18/10/2013<br /><span> La pollution de l'air extérieur reconnue comme cancérigène par l'OMS</span><br /><br /></a></div>
+                    <div class="focus_item_img"><a href="/actualite/detail/id/115" title=" Sud-ouest parisien : ouverture d’une nouvelle station de mesure"><img src="/_img/actu/home/station-stade-lenglen.jpg" alt="" width="90" height="60"/></a></div>
+                    <div class="focus_item_txt"><a href="/actualite/detail/id/115" title=" Sud-ouest parisien : ouverture d’une nouvelle station de mesure">10/07/2014<br /><span> Sud-ouest parisien : ouverture d’une nouvelle station de mesure</span><br />Afin de maintenir une mesure de ...<br /></a></div>
                 </div>
                 <div class="focus_item">
-                    <div class="focus_item_img"><a href="/actualite/detail/id/88" title=" Bilan de la campagne Twitter"><img src="/_img/actu/home/jtp.png" alt="" width="90" height="60"/></a></div>
-                    <div class="focus_item_txt"><a href="/actualite/detail/id/88" title=" Bilan de la campagne Twitter">18/09/2013<br /><span> Bilan de la campagne Twitter</span><br />Dans le cadre de la Journée du ...<br /></a></div>
+                    <div class="focus_item_img"><a href="/actualite/detail/id/114" title=" Le Ministre de l'Environnement de Chine en visite à Airparif"><img src="/_img/actu/home/delegation-chinoise.png" alt="" width="90" height="60"/></a></div>
+                    <div class="focus_item_txt"><a href="/actualite/detail/id/114" title=" Le Ministre de l'Environnement de Chine en visite à Airparif">03/07/2014<br /><span> Le Ministre de l'Environnement de Chine en visite à Airparif</span><br />La visite du Ministre chinois de ...<br /></a></div>
                 </div>
                 <div class="focus_item">
-                    <div class="focus_item_img"><a href="/actualite/detail/id/87" title=" Journée du transport public"><img src="/_img/actu/home/mesure-embarquee.jpg" alt="" width="90" height="60"/></a></div>
-                    <div class="focus_item_txt"><a href="/actualite/detail/id/87" title=" Journée du transport public">17/09/2013<br /><span> Journée du transport public</span><br />Mesures en voiture relayées sur ...<br /></a></div>
+                    <div class="focus_item_img"><a href="/actualite/detail/id/113" title=" Métaux et particules autour du site UIOM d’Ivry-sur-Seine"><img src="/_img/actu/home/cheminees-uiom.png" alt="" width="90" height="60"/></a></div>
+                    <div class="focus_item_txt"><a href="/actualite/detail/id/113" title=" Métaux et particules autour du site UIOM d’Ivry-sur-Seine">06/06/2014<br /><span> Métaux et particules autour du site UIOM d’Ivry-sur-Seine</span><br />Caractérisation des niveaux de ...<br /></a></div>
                 </div>
                 <div class="focus_item">
-                    <div class="focus_item_img"><a href="/actualite/detail/id/86" title=" Nouvelle campagne « pesticides »"><img src="/_img/actu/home/insecticide_rose.jpg" alt="" width="90" height="60"/></a></div>
-                    <div class="focus_item_txt"><a href="/actualite/detail/id/86" title=" Nouvelle campagne « pesticides »">19/08/2013<br /><span> Nouvelle campagne « pesticides »</span><br />Les pesticides vont faire l’objet ...<br /></a></div>
+                    <div class="focus_item_img"><a href="/actualite/detail/id/112" title=" Bilans"><img src="/_img/actu/home/bilan2010.jpg" alt="" width="90" height="60"/></a></div>
+                    <div class="focus_item_txt"><a href="/actualite/detail/id/112" title=" Bilans">14/05/2014<br /><span> Bilans</span><br />Circulation alternée du 17/03/14 ...<br /></a></div>
                 </div>
         </div>
         <a class="next"><img class="roll-over" src="/_img/bttn/home_focus_scroll_foot_of.png" alt="" /></a>
@@ -390,7 +412,8 @@ $(function() {
 </div>
 <!--<script type="text/javascript" src="/_js/jquery.tools.min.js"></script> -->
 <script type="text/javascript" src="/_js/jquery-ui.js"></script>
-<script type="text/javascript" src="/_js/fancybox/fancybox.js"></script><script type="text/javascript" src="/_js/jquery.hoverIntent.minified.js"></script>
+<script type="text/javascript" src="/_js/fancybox/fancybox.js"></script>
+<script type="text/javascript" src="/_js/easytooltip.js"></script><script type="text/javascript" src="/_js/jquery.hoverIntent.minified.js"></script>
 <script type="text/javascript" src="/_js/jquery.vscroll.min.js"></script>
 <script type="text/javascript" src="/_js/cufon.js"></script>
 <script type="text/javascript" src="/_js/interface.js"></script>
