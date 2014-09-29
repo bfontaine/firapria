@@ -10,3 +10,4 @@ _build
 *.egg-info
 .coverage
 .tox
+/notes
