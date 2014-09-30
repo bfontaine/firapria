@@ -6,33 +6,34 @@ COVERFILE:=.coverage
 COVERAGE_REPORT:=report -m
 
 VENV=venv
+BINPREFIX=$(VENV)/bin/
 
 .PHONY: deps clean check covercheck stylecheck
 
 DEFAULT: deps stylecheck covercheck
 
 deps: venv
-	$(VENV)/bin/pip install -qr requirements.txt
+	$(BINPREFIX)pip install -qr requirements.txt
 
 venv:
 	virtualenv venv
 
 check: stylecheck
-	python tests/test.py
+	$(BINPREFIX)python tests/test.py
 
 check-versions: stylecheck
-	tox
+	$(BINPREFIX)tox
 
 stylecheck:
-	pep8 $(SRC)
+	$(BINPREFIX)pep8 $(SRC)
 
 covercheck:
-	coverage run --source=$(SRC) tests/test.py
-	coverage $(COVERAGE_REPORT)
+	$(BINPREFIX)coverage run --source=$(SRC) tests/test.py
+	$(BINPREFIX)coverage $(COVERAGE_REPORT)
 
 clean:
 	rm -f *~ */*~
 	rm -f $(COVERFILE)
 
 publish: check-versions
-	python setup.py sdist upload
+	$(BINPREFIX)python setup.py sdist upload
